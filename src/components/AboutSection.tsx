@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Eye, Shield, Users } from "lucide-react";
+import { Heart, Eye, Shield, Users, Ribbon } from "lucide-react";
 
 const values = [
   { icon: Heart, label: "Compassion" },
@@ -15,18 +15,21 @@ const fadeInUp = {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 gradient-dark-pink">
+    <section id="about" className="py-24 gradient-section">
       <div className="container px-4">
-        <motion.h2
-          className="font-heading text-3xl md:text-5xl font-bold text-primary text-glow text-center mb-6"
+        <motion.div
+          className="flex items-center justify-center gap-3 mb-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
           transition={{ duration: 0.5 }}
         >
-          Our Story
-        </motion.h2>
+          <Ribbon size={28} className="text-primary" />
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary text-center">
+            Our Story
+          </h2>
+        </motion.div>
 
         <motion.p
           className="text-muted-foreground text-lg max-w-3xl mx-auto text-center mb-16 leading-relaxed"
@@ -36,7 +39,7 @@ const AboutSection = () => {
           variants={fadeInUp}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          Founded by psychiatric nurse <span className="text-primary font-semibold">Georgina Achieng Otieno</span>, Men Matter
+          Founded by psychiatric nurse <span className="text-secondary font-semibold">Georgina Achieng Otieno</span>, Men Matter
           addresses stigma, depression, and harmful coping mechanisms by
           creating safe spaces for conversation and healing. Our goal is to
           strengthen emotional wellbeing, promote mental health literacy, and
@@ -46,7 +49,7 @@ const AboutSection = () => {
         {/* Mission / Vision / Values */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <motion.div
-            className="bg-card rounded-xl p-8 border border-border border-glow"
+            className="bg-card rounded-xl p-8 border border-border hover:border-primary/60 card-hover shadow-sm"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -61,7 +64,7 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            className="bg-card rounded-xl p-8 border border-border border-glow"
+            className="bg-card rounded-xl p-8 border border-border hover:border-primary/60 card-hover shadow-sm"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -76,7 +79,7 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            className="bg-card rounded-xl p-8 border border-border border-glow"
+            className="bg-card rounded-xl p-8 border border-border hover:border-primary/60 card-hover shadow-sm"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -88,7 +91,7 @@ const AboutSection = () => {
               {values.map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="flex items-center gap-2 text-sm text-secondary-foreground bg-secondary rounded-full px-4 py-2"
+                  className="flex items-center gap-2 text-sm text-primary-foreground bg-primary rounded-full px-4 py-2"
                 >
                   <Icon size={16} />
                   {label}

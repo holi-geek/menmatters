@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Ribbon } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -15,11 +15,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container flex items-center justify-between h-16">
         <a href="#home" className="flex items-center gap-2">
           <img src={logo} alt="Men Matter logo" className="h-10 w-10 rounded-full" />
-          <span className="font-heading text-lg font-bold text-primary text-glow-sm tracking-wider">
+          <span className="font-heading text-lg font-bold text-primary tracking-wider">
             MEN MATTER
           </span>
         </a>
@@ -49,7 +49,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background border-b border-border">
+        <div className="md:hidden bg-card border-b border-border">
           <div className="container py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,48 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
+    --background: 36 50% 97%;
+    --foreground: 220 20% 16%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
+    --card: 30 40% 95%;
+    --card-foreground: 220 20% 16%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 36 50% 97%;
+    --popover-foreground: 220 20% 16%;
 
-    --primary: 330 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 160 64% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 330 70% 15%;
-    --secondary-foreground: 330 100% 70%;
+    --secondary: 24 80% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 75%;
+    --muted: 30 20% 90%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 185 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 45 93% 56%;
+    --accent-foreground: 220 20% 16%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 330 30% 20%;
-    --input: 330 30% 15%;
-    --ring: 330 100% 50%;
+    --border: 30 25% 82%;
+    --input: 30 25% 85%;
+    --ring: 160 64% 40%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 330 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 330 70% 15%;
-    --sidebar-accent-foreground: 330 100% 70%;
-    --sidebar-border: 330 30% 20%;
-    --sidebar-ring: 330 100% 50%;
-
-    --glow-pink: 0 0 20px hsl(330 100% 50% / 0.5), 0 0 40px hsl(330 100% 50% / 0.3);
-    --glow-pink-strong: 0 0 20px hsl(330 100% 50% / 0.6), 0 0 60px hsl(330 100% 50% / 0.4), 0 0 100px hsl(330 100% 50% / 0.2);
-    --glow-cyan: 0 0 20px hsl(185 100% 50% / 0.4), 0 0 40px hsl(185 100% 50% / 0.2);
+    --sidebar-background: 30 30% 94%;
+    --sidebar-foreground: 220 20% 16%;
+    --sidebar-primary: 160 64% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 24 80% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 30 25% 82%;
+    --sidebar-ring: 160 64% 40%;
   }
 }
 
@@ -61,53 +57,37 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px hsl(330 100% 50% / 0.7), 0 0 30px hsl(330 100% 50% / 0.5), 0 0 60px hsl(330 100% 50% / 0.3);
+  .gradient-warm {
+    background: linear-gradient(135deg, hsl(24 80% 55%), hsl(45 93% 56%), hsl(36 50% 97%));
   }
 
-  .text-glow-sm {
-    text-shadow: 0 0 8px hsl(330 100% 50% / 0.5), 0 0 20px hsl(330 100% 50% / 0.3);
+  .gradient-section {
+    background: linear-gradient(180deg, hsl(36 50% 97%) 0%, hsl(30 40% 93%) 50%, hsl(36 50% 97%) 100%);
   }
 
-  .text-glow-cyan {
-    text-shadow: 0 0 10px hsl(185 100% 50% / 0.7), 0 0 30px hsl(185 100% 50% / 0.4);
-  }
-
-  .box-glow {
-    box-shadow: var(--glow-pink);
-  }
-
-  .box-glow-strong {
-    box-shadow: var(--glow-pink-strong);
-  }
-
-  .box-glow-cyan {
-    box-shadow: var(--glow-cyan);
-  }
-
-  .border-glow {
-    border-color: hsl(330 100% 50% / 0.5);
-    box-shadow: inset 0 0 15px hsl(330 100% 50% / 0.1), 0 0 15px hsl(330 100% 50% / 0.15);
-  }
-
-  .gradient-pink {
-    background: linear-gradient(135deg, hsl(330 100% 50%), hsl(300 80% 45%), hsl(340 100% 55%));
-  }
-
-  .gradient-dark-pink {
-    background: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(330 50% 8%) 50%, hsl(0 0% 4%) 100%);
+  .gradient-green {
+    background: linear-gradient(135deg, hsl(160 64% 40%), hsl(152 60% 45%), hsl(165 70% 38%));
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, hsl(330 100% 60%), hsl(185 100% 50%));
+    background: linear-gradient(135deg, hsl(160 64% 40%), hsl(24 80% 55%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px hsl(160 64% 40% / 0.2);
   }
 }
 
