@@ -1,0 +1,105 @@
+import { motion } from "framer-motion";
+import { Heart, Eye, Shield, Users } from "lucide-react";
+
+const values = [
+  { icon: Heart, label: "Compassion" },
+  { icon: Users, label: "Inclusion" },
+  { icon: Shield, label: "Respect" },
+  { icon: Eye, label: "Empowerment" },
+];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const AboutSection = () => {
+  return (
+    <section id="about" className="py-24 gradient-dark-pink">
+      <div className="container px-4">
+        <motion.h2
+          className="font-heading text-3xl md:text-5xl font-bold text-primary text-glow text-center mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          transition={{ duration: 0.5 }}
+        >
+          Our Story
+        </motion.h2>
+
+        <motion.p
+          className="text-muted-foreground text-lg max-w-3xl mx-auto text-center mb-16 leading-relaxed"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
+          Founded by psychiatric nurse <span className="text-primary font-semibold">Georgina Achieng Otieno</span>, Men Matter
+          addresses stigma, depression, and harmful coping mechanisms by
+          creating safe spaces for conversation and healing. Our goal is to
+          strengthen emotional wellbeing, promote mental health literacy, and
+          empower men and youth in underserved communities.
+        </motion.p>
+
+        {/* Mission / Vision / Values */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <motion.div
+            className="bg-card rounded-xl p-8 border border-border border-glow"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">Mission</h3>
+            <p className="text-muted-foreground">
+              Promote emotional wellbeing and reduce stigma around mental health
+              among men and youth through community engagement and education.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-card rounded-xl p-8 border border-border border-glow"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">Vision</h3>
+            <p className="text-muted-foreground">
+              A community where men and youth speak openly about mental health
+              and access the support they need without fear or judgment.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-card rounded-xl p-8 border border-border border-glow"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">Values</h3>
+            <div className="flex flex-wrap gap-3">
+              {values.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="flex items-center gap-2 text-sm text-secondary-foreground bg-secondary rounded-full px-4 py-2"
+                >
+                  <Icon size={16} />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutSection;
