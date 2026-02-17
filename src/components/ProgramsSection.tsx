@@ -29,7 +29,7 @@ const ProgramsSection = () => {
     <section id="programs" className="py-24 bg-background">
       <div className="container px-4">
         <motion.h2
-          className="font-heading text-3xl md:text-5xl font-bold text-primary text-glow text-center mb-16"
+          className="font-heading text-3xl md:text-5xl font-bold text-primary text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -42,13 +42,13 @@ const ProgramsSection = () => {
           {programs.map((program, i) => (
             <motion.div
               key={program.title}
-              className="group bg-card rounded-xl p-8 border border-border hover:border-primary/60 transition-all duration-300 hover:box-glow"
+              className="group bg-card rounded-xl p-8 border border-border hover:border-primary/60 card-hover shadow-sm"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
-              <div className="w-12 h-12 rounded-lg gradient-pink flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-lg gradient-green flex items-center justify-center mb-5">
                 <program.icon size={24} className="text-primary-foreground" />
               </div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
