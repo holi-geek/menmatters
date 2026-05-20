@@ -32,6 +32,9 @@ const HeroSection = () => {
         <motion.img
           src={logo}
           alt="Men Matter logo"
+          width="112"
+          height="112"
+          fetchPriority="high"
           className="w-28 h-28 mx-auto mb-6 rounded-full border-4 border-primary shadow-lg"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
