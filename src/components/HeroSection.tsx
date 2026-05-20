@@ -16,10 +16,15 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
+      {/* Background image — above-the-fold LCP element */}
+      <img
+        src={heroBg}
+        alt=""
+        role="presentation"
+        width="1920"
+        height="1080"
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/50" />
 
@@ -27,6 +32,9 @@ const HeroSection = () => {
         <motion.img
           src={logo}
           alt="Men Matter logo"
+          width="112"
+          height="112"
+          fetchPriority="high"
           className="w-28 h-28 mx-auto mb-6 rounded-full border-4 border-primary shadow-lg"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
