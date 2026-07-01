@@ -21,7 +21,7 @@ const cards = [
 
 const GetInvolvedSection = () => {
   return (
-    <section id="get-involved" className="py-24 bg-background">
+    <section id="get-involved" className="py-16 bg-background">
       <div className="container px-4">
         <motion.h2
           className="font-heading text-3xl md:text-5xl font-bold text-primary text-center mb-16"
