@@ -15,7 +15,7 @@ const fadeInUp = {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 gradient-section">
+    <section id="about" className="py-16 gradient-section">
       <div className="container px-4">
         <motion.div
           className="flex items-center justify-center gap-3 mb-6"
