@@ -108,8 +108,42 @@ const AboutSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Objectives */}
+        <motion.div
+          className="max-w-4xl mx-auto bg-card rounded-xl p-8 md:p-10 border border-border hover:border-primary/60 card-hover shadow-sm"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Target size={28} className="text-primary" />
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary text-center">
+              Objectives
+            </h3>
+          </div>
+
+          <p className="text-muted-foreground text-center mb-6">
+            The objectives of the group shall be to:
+          </p>
+
+          <ul className="space-y-4">
+            {objectives.map((objective, index) => (
+              <li
+                key={index}
+                className="flex items-start gap-3 text-muted-foreground"
+              >
+                <CheckCircle size={20} className="text-primary mt-1 shrink-0" />
+                <span>{objective}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </section>
+
   );
 };
 
