@@ -36,5 +36,21 @@
 				<p><strong><?php esc_html_e( 'Compassion · Inclusion · Respect · Empowerment', 'men-matter' ); ?></strong></p>
 			</div>
 		</div>
+
+		<div class="mm-card mm-objectives">
+			<div class="mm-ribbon-title">
+				<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+				<h3><?php esc_html_e( 'Objectives', 'men-matter' ); ?></h3>
+			</div>
+
+			<p class="mm-objectives-lead"><?php esc_html_e( 'The objectives of the group shall be to:', 'men-matter' ); ?></p>
+
+			<ul class="mm-objectives-list">
+				<li><?php esc_html_e( "Promote men's mental health and emotional wellbeing.", 'men-matter' ); ?></li>
+				<li><?php esc_html_e( 'Prevent sexual and gender based violence through education, accountability and positive masculinity.', 'men-matter' ); ?></li>
+				<li><?php esc_html_e( 'Provide safe spaces for men to discuss mental health and life challenges.', 'men-matter' ); ?></li>
+				<li><?php esc_html_e( "Strengthen men's roles in families and communities as protectors and advocates for dignity.", 'men-matter' ); ?></li>
+			</ul>
+		</div>
 	</div>
 </section>
