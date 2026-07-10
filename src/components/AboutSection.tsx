@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Heart, Eye, Shield, Users, Ribbon } from "lucide-react";
+import { Heart, Eye, Shield, Users, Ribbon, Target, CheckCircle } from "lucide-react";
 
 const values = [
   { icon: Heart, label: "Compassion" },
@@ -7,6 +7,14 @@ const values = [
   { icon: Shield, label: "Respect" },
   { icon: Eye, label: "Empowerment" },
 ];
+
+const objectives = [
+  "Promote men's mental health and emotional wellbeing.",
+  "Prevent sexual and gender based violence through education, accountability and positive masculinity.",
+  "Provide safe spaces for men to discuss mental health and life challenges.",
+  "Strengthen men's roles in families and communities as protectors and advocates for dignity.",
+];
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
