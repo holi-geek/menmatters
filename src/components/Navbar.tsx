@@ -5,6 +5,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Framework", href: "#framework" },
   { label: "Programs", href: "#programs" },
   { label: "Impact", href: "#impact" },
   { label: "Get Involved", href: "#get-involved" },
