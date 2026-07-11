@@ -33,7 +33,7 @@
 			<div>
 				<h4><?php esc_html_e( 'Contact', 'men-matter' ); ?></h4>
 				<ul>
-					<li>Kisumu, Kenya</li>
+					<li>HomaBay, Kenya</li>
 					<li><a href="mailto:info@menmatters.org">info@menmatters.org</a></li>
 				</ul>
 			</div>

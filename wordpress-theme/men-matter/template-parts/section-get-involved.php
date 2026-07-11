@@ -27,6 +27,7 @@
 
 		<div id="contact" style="text-align:center;margin-top:3rem;">
 			<a class="mm-btn mm-btn-primary" href="mailto:info@menmatters.org"><?php esc_html_e( 'Email Us', 'men-matter' ); ?></a>
+			<p style="font-size: 0.75rem; color: #666; margin-top: 1rem;">📍 HomaBay, Kenya</p>
 		</div>
 	</div>
 </section>
