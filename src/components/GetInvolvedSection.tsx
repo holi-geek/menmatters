@@ -66,7 +66,7 @@ const GetInvolvedSection = () => {
           transition={{ duration: 0.5 }}
         >
           <ContactForm />
-          <p className="text-center text-xs text-muted-foreground mt-4">📍 Kisumu, Kenya</p>
+          <p className="text-center text-xs text-muted-foreground mt-4">📍 HomaBay, Kenya</p>
         </motion.div>
       </div>
     </section>

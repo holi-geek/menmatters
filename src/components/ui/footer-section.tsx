@@ -74,7 +74,7 @@ function Footerdemo() {
           <div>
             <h3 className="mb-4 font-heading text-lg font-semibold text-accent">Contact Us</h3>
             <address className="not-italic space-y-2 text-sm text-primary-foreground/70">
-              <p>Kisumu, Kenya</p>
+              <p>HomaBay, Kenya</p>
               <p>Phone: +254 700 000 000</p>
               <p>
                 Email:{" "}
