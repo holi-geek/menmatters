@@ -36,19 +36,6 @@ const AboutSection = () => {
         </motion.h2>
       </LampContainer>
       <div className="container px-4 py-16">
-        <motion.div
-          className="flex items-center justify-center gap-3 mb-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          transition={{ duration: 0.5 }}
-        >
-          <Ribbon size={28} className="text-primary" />
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary text-center">
-            Our Story
-          </h2>
-        </motion.div>
 
         <motion.p
           className="text-muted-foreground text-lg max-w-3xl mx-auto text-center mb-16 leading-relaxed"
