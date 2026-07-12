@@ -24,8 +24,11 @@ const fadeInUp = {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 gradient-section">
-      <div className="container px-4">
+    <section id="about" className="relative py-16 gradient-section overflow-hidden">
+      <div className="absolute inset-0 opacity-30 md:opacity-40">
+        <GlobeBackground />
+      </div>
+      <div className="container px-4 relative z-10">
         <motion.div
           className="flex items-center justify-center gap-3 mb-6"
           initial="hidden"
