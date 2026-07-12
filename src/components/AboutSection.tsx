@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Heart, Eye, Shield, Users, Ribbon, Target, CheckCircle } from "lucide-react";
+import aboutBg from "@/assets/about-bg.jpg";
 
 const values = [
   { icon: Heart, label: "Compassion" },
