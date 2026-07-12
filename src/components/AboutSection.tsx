@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, Eye, Shield, Users, Ribbon, Target, CheckCircle } from "lucide-react";
+import GlobeBackground from "@/components/ui/globe-background";
 
 const values = [
   { icon: Heart, label: "Compassion" },
