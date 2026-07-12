@@ -1,7 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { Heart, Eye, Shield, Users, Ribbon, Target, CheckCircle } from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
 
 const values = [
   { icon: Heart, label: "Compassion" },
@@ -24,30 +22,8 @@ const fadeInUp = {
 };
 
 const AboutSection = () => {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-
   return (
-    <section
-      id="about"
-      ref={ref}
-      className="relative py-16 overflow-hidden isolate"
-    >
-      {/* Parallax background */}
-      <motion.div
-        aria-hidden
-        style={{ y: bgY, backgroundImage: `url(${aboutBg})` }}
-        className="absolute inset-0 -z-20 bg-cover bg-center scale-125 will-change-transform"
-      />
-      {/* Warm readability overlay */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-background/85 backdrop-blur-[2px]"
-      />
+    <section id="about" className="py-16 gradient-section">
       <div className="container px-4">
         <motion.div
           className="flex items-center justify-center gap-3 mb-6"
