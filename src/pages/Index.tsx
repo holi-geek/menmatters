@@ -2,10 +2,11 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import FrameworkSection from "@/components/FrameworkSection";
 import ProgramsSection from "@/components/ProgramsSection";
+import FrameworkSection from "@/components/FrameworkSection";
 import ImpactSection from "@/components/ImpactSection";
 import GetInvolvedSection from "@/components/GetInvolvedSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,14 +21,17 @@ const Index = () => {
         <meta name="twitter:title" content="Men Matter | Mental Health Matters" />
         <meta name="twitter:description" content="Men Matter is a Kenyan community-based mental health initiative improving wellbeing among men and youth through education, dialogue, and advocacy." />
       </Helmet>
-      <div className="min-h-screen bg-background">
+      
+      {/* Background set to soft cream, spacing gap removed to allow section padding to control layout */}
+      <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
         <Navbar />
         <HeroSection />
         <AboutSection />
-        <FrameworkSection />
         <ProgramsSection />
+        <FrameworkSection />
         <ImpactSection />
         <GetInvolvedSection />
+        <ContactSection />
         <Footer />
       </div>
     </>

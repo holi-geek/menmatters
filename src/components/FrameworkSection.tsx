@@ -85,14 +85,26 @@ const FrameworkSection: React.FC = () => {
   const [selectedQuadrant, setSelectedQuadrant] = useState<QuadrantData | null>(null);
 
   return (
-    <section id="framework" className="relative py-24 overflow-hidden bg-background">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
-      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
+    <section 
+      id="framework" 
+      className="relative py-24 overflow-hidden bg-stone-950"
+      style={{
+        background: 'radial-gradient(ellipse at 50% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 70%), radial-gradient(ellipse at 20% 20%, rgba(16, 185, 129, 0.06) 0%, transparent 50%), #0c0a09'
+      }}
+    >
+      {/* --- Storytelling Ambient Glows --- */}
+      {/* Warm Amber Glow - represents hope, resilience, the first light of dawn */}
+      <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
+      
+      {/* Calming Green Glow - represents healing, growth, support */}
+      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] pointer-events-none translate-y-1/2" />
+      
+      {/* Soft Center Spotlight - draws focus to the "From Silence to Support" model */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container px-4 mx-auto relative z-10 flex justify-center">
-        {/* Glassmorphic Container */}
-        <div className="max-w-4xl w-full bg-white/60 backdrop-blur-xl p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.05)] border border-white/50 rounded-3xl">
+        {/* Glassmorphic Container - Adapted for dark storytelling background */}
+        <div className="max-w-4xl w-full bg-stone-900/60 backdrop-blur-md p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-stone-800/50 rounded-3xl">
           
           {/* Header Section */}
           <motion.header
@@ -100,66 +112,65 @@ const FrameworkSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center border-b-2 border-slate-200/60 pb-6 mb-12"
-          ><h1 className="font-heading text-primary text-foreground text-3xl md:text-5xl font-bold mb-3 tracking-tight">
-               FROM SILENCE TO SUPPORT
-            </h1>
-            <p className="text-xl ">
-              A community mental health model 
-              developed by psychiatric nurse Georgina Achieng Otieno.
-            </p>
-            {/*<h1 className="font-heading text-foreground text-3xl md:text-5xl font-bold mb-3 tracking-tight">
+            className="text-center border-b-2 border-stone-700/60 pb-6 mb-12"
+          >
+            <h1 className="font-heading text-3xl md:text-5xl font-bold mb-3 tracking-tight text-transparent bg-gradient-to-br from-stone-100 via-amber-50 to-stone-300 bg-clip-text">
               FROM SILENCE TO SUPPORT
             </h1>
-            <p className="text-xl text-primary italic mb-4">
-              From Silence to Support:{" "}
-              <span className="text-secondary not-italic font-semibold">
-                Building Mental Health in Communities.
-              </span>
-            </p>*/}
+            <p className="text-stone-300 text-lg md:text-xl">
+              A community mental health model 
+              developed by psychiatric nurse <span className="text-amber-400 font-medium">Georgina Achieng Otieno</span>.
+            </p>
           </motion.header>
 
-          {/* Interactive Wheel */}
+          {/* Interactive Wheel - Spinning */}
           <div className="flex justify-center items-center mb-16 relative">
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-[320px] h-[320px] md:w-[460px] md:h-[460px] rounded-full relative overflow-hidden shadow-2xl bg-white"
+              className="w-[320px] h-[320px] md:w-[460px] md:h-[460px] rounded-full relative overflow-hidden shadow-2xl bg-stone-800/30 border border-stone-700/30"
             >
-              {quadrants.map((q, i) => (
-                <motion.div
-                  key={q.id}
-                  onClick={() => setSelectedQuadrant(q)}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2, duration: 0.6, type: "spring" }}
-                  className={`absolute w-1/2 h-1/2 flex flex-col justify-center items-center text-white text-center p-4 md:p-6 cursor-pointer transition-all duration-500 ease-out bg-gradient-to-br ${q.gradient} ${q.position} ${q.hover} group`}
-                >
-                  <div className="text-3xl md:text-4xl mb-2 drop-shadow-md transition-transform duration-300 group-hover:scale-125">
-                    {q.icon}
-                  </div>
-                  <h3 className="text-lg md:text-2xl font-bold mb-1 tracking-wide">{q.title}</h3>
-                  <p className="text-xs md:text-sm opacity-90 max-w-[140px] leading-snug hidden md:block">
-                    {q.desc}
-                  </p>
-                </motion.div>
-              ))}
+              {/* Spinning container for quadrants */}
+              <div className="absolute inset-0 animate-spin-slow hover:animate-spin-pause will-change-transform">
+                {quadrants.map((q, i) => (
+                  <motion.div
+                    key={q.id}
+                    onClick={() => setSelectedQuadrant(q)}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.2, duration: 0.6, type: "spring" }}
+                    className={`absolute w-1/2 h-1/2 flex flex-col justify-center items-center text-white text-center p-4 md:p-6 cursor-pointer transition-all duration-500 ease-out bg-gradient-to-br ${q.gradient} ${q.position} ${q.hover} group`}
+                    style={{ willChange: 'transform' }}
+                  >
+                    {/* Counter-rotating content to keep text upright */}
+                    <div className="animate-counter-spin-slow flex flex-col items-center justify-center">
+                      <div className="text-3xl md:text-4xl mb-2 drop-shadow-md transition-transform duration-300 group-hover:scale-125">
+                        {q.icon}
+                      </div>
+                      <h3 className="text-lg md:text-2xl font-bold mb-1 tracking-wide">{q.title}</h3>
+                      <p className="text-xs md:text-sm opacity-90 max-w-[140px] leading-snug hidden md:block">
+                        {q.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
 
-              {/* Inner Hub - Fixed Overlap */}
+              {/* Inner Hub - Fixed Overlap (does not spin) */}
               <motion.div
                 initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
                 whileInView={{ scale: 1, opacity: 1, x: "-50%", y: "-50%" }}
                 viewport={{ once: true }}
                 transition={{ delay: 1, type: "spring", stiffness: 200, damping: 15 }}
-                className="absolute top-1/2 left-1/2 w-[120px] h-[120px] md:w-[190px] md:h-[190px] bg-white/90 backdrop-blur-md rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.1)] flex flex-col justify-center items-center text-center p-2 border-[6px] border-background z-10 pointer-events-none"
+                className="absolute top-1/2 left-1/2 w-[120px] h-[120px] md:w-[190px] md:h-[190px] bg-stone-950/90 backdrop-blur-md rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.5)] flex flex-col justify-center items-center text-center p-2 border-[6px] border-stone-700 z-10 pointer-events-none"
               >
-                <h2 className="font-heading text-foreground text-xs md:text-xl font-black leading-tight">
+                <h2 className="font-heading text-stone-300 text-xs md:text-xl font-black leading-tight">
                   From<br />Silence to
                 </h2>
-                <p className="font-heading text-secondary text-sm md:text-xl font-bold mt-1 border-t border-primary pt-1 w-[90%]">
+                <p className="font-heading text-amber-400 text-sm md:text-xl font-bold mt-1 border-t border-stone-700 pt-1 w-[90%]">
                   Support
                 </p>
               </motion.div>
@@ -183,12 +194,12 @@ const FrameworkSection: React.FC = () => {
                   visible: { opacity: 1, y: 0 }
                 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-xl overflow-hidden text-center border border-slate-200 flex flex-col transition-shadow duration-300 cursor-pointer"
+                className="bg-stone-800/60 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-xl overflow-hidden text-center border border-stone-700/50 flex flex-col transition-shadow duration-300 cursor-pointer group"
               >
                 <div className={`text-white text-base md:text-lg font-bold py-3 px-2 relative ${q.titleBg} ${q.titleAfter} after:content-[''] after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:border-l-[6px] after:border-r-[6px] after:border-t-[6px] after:border-l-transparent after:border-r-transparent`}>
                   {q.title}
                 </div>
-                <div className="p-5 text-sm text-slate-700 font-semibold leading-relaxed flex-grow flex items-center justify-center bg-gradient-to-b from-white to-slate-50">
+                <div className="p-5 text-sm text-stone-300 font-semibold leading-relaxed flex-grow flex items-center justify-center bg-gradient-to-b from-stone-800/0 to-stone-900/30">
                   {q.shortDesc}
                 </div>
               </motion.div>
@@ -205,7 +216,7 @@ const FrameworkSection: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedQuadrant(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-md"
           >
             <motion.div
               initial={{ scale: 0.9, y: 20, opacity: 0 }}
@@ -213,7 +224,7 @@ const FrameworkSection: React.FC = () => {
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg overflow-hidden bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl shadow-2xl"
+              className="relative w-full max-w-lg overflow-hidden bg-stone-900/95 backdrop-blur-xl border border-stone-700/50 rounded-2xl shadow-2xl"
             >
               <div className={`p-6 text-white bg-gradient-to-br ${selectedQuadrant.gradient} flex items-center gap-4`}>
                 <div className="text-4xl drop-shadow-md">{selectedQuadrant.icon}</div>
@@ -229,7 +240,7 @@ const FrameworkSection: React.FC = () => {
                 </button>
               </div>
               <div className="p-6 md:p-8">
-                <p className="text-slate-700 leading-relaxed text-lg">
+                <p className="text-stone-200 leading-relaxed text-lg">
                   {selectedQuadrant.fullText}
                 </p>
                 <button
@@ -243,6 +254,34 @@ const FrameworkSection: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes counter-spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 30s linear infinite;
+          will-change: transform;
+        }
+        .animate-counter-spin-slow {
+          animation: counter-spin-slow 30s linear infinite;
+          will-change: transform;
+        }
+        .animate-spin-slow:hover {
+          animation-play-state: paused;
+        }
+        .animate-spin-slow:hover .animate-counter-spin-slow {
+          animation-play-state: paused;
+        }
+        .will-change-transform {
+          will-change: transform;
+        }
+      `}</style>
     </section>
   );
 };

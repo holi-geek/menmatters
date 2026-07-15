@@ -1,112 +1,186 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import logo from "@/assets/logo.png";
 import { Ribbon } from "lucide-react";
 
-const highlights = [
-  "Community Dialogues",
-  "Youth Mental Health",
-  "Media Advocacy",
-  "Prison Outreach",
-];
+// Calming, restrained breathing/floating animation for the badge
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: [0, -4, 0],
+    transition: {
+      opacity: { duration: 0.8, delay: 0.5 },
+      scale: { duration: 0.8, delay: 0.5 },
+      y: {
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  },
+};
 
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Soft, weighted mouse parallax drift (high damping, low stiffness)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, { damping: 90, stiffness: 60 });
+  const smoothY = useSpring(mouseY, { damping: 90, stiffness: 60 });
+
+  const bgX = useTransform(smoothX, [-0.5, 0.5], [-8, 8]);
+  const bgY = useTransform(smoothY, [-0.5, 0.5], [-8, 8]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    mouseX.set((e.clientX - rect.left) / width - 0.5);
+    mouseY.set((e.clientY - rect.top) / height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  // Infinite looping typewriter identity array for the lower line
+  const rotatingSubheads = ["Men Matter.", "Fathers Matter.", "Brothers Matter.", "Leaders Matter."];
+  const [subheadText, setSubheadText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopIndex, setLoopIndex] = useState(0);
+  const [startTyping, setStartTyping] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartTyping(true);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    const currentFullText = rotatingSubheads[loopIndex % rotatingSubheads.length];
+    const typingSpeed = isDeleting ? 50 : 100;
+
+    const handleTypewriter = () => {
+      if (!isDeleting) {
+        setSubheadText(currentFullText.substring(0, subheadText.length + 1));
+        if (subheadText === currentFullText) {
+          setTimeout(() => setIsDeleting(true), 2000); // Pause at full word before deleting
+        }
+      } else {
+        setSubheadText(currentFullText.substring(0, subheadText.length - 1));
+        if (subheadText === "") {
+          setIsDeleting(false);
+          setLoopIndex((prev) => prev + 1);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTypewriter, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [subheadText, isDeleting, loopIndex, startTyping]);
+
   return (
     <section
+      ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 perspective-1000 bg-stone-950"
     >
-      {/* Background image — above-the-fold LCP element */}
-      <img
-        src={heroBg}
-        alt=""
-        role="presentation"
-        width="1920"
-        height="1080"
-        fetchPriority="high"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-foreground/50" />
-
-      <div className="relative container text-center py-20 px-4">
-        <motion.img
-          src={logo}
-          alt="Men Matter logo"
-          width="112"
-          height="112"
-          fetchPriority="high"
-          className="w-28 h-28 mx-auto mb-6 rounded-full border-4 border-primary shadow-lg"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, type: "spring" }}
+      {/* Restrained, slow parallax background layer */}
+      <motion.div
+        className="absolute inset-0 w-full h-full scale-105 pointer-events-none transition-transform duration-1000"
+        style={{ x: bgX, y: bgY }}
+      >
+        <img
+          src={heroBg}
+          alt=""
+          role="presentation"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+          className="w-full h-full object-cover opacity-90"
         />
+      </motion.div>
 
+      {/* Optimized focal radial gradient mask for AAA text contrast legibility */}
+      <div className="absolute inset-0 bg-radial-gradient from-black/50 via-foreground/85 to-foreground/95 backdrop-blur-[2px]" />
+
+      <div className="relative container max-w-4xl text-center py-24 px-4 sm:px-6 z-10">
+        
+        {/* Stable Cognitive-Safe Primary Headline */}
         <motion.h1
-          className="font-heading text-4xl sm:text-5xl md:text-7xl font-black text-primary-foreground mb-6 leading-tight"
-          initial={{ opacity: 0, y: 30 }}
+          className="font-heading text-4xl sm:text-6xl md:text-7xl font-black text-primary-foreground mb-6 leading-[1.1] flex flex-col items-center"
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
         >
-          Mental Health Matters.
-          <br />
-          <span className="text-accent">Men Matter.</span>
+          <span className="block">Mental Health Matters.</span>
+          <span className="block mt-2 text-accent drop-shadow-[0_0_25px_rgba(0,0,0,0.6)] min-h-[1.1em]">
+            {subheadText}
+            <span className="inline-block w-1.5 h-[0.8em] bg-accent ml-1.5 animate-pulse align-middle" />
+          </span>
         </motion.h1>
 
+        {/* Supporting Narrative */}
         <motion.p
-          className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          A community-based initiative improving mental wellbeing among men and
-          youth through education, dialogue, and advocacy.
-        </motion.p>
-
-        <motion.p
-          className="font-heading text-sm tracking-[0.3em] uppercase text-accent mb-10 flex items-center justify-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <Ribbon size={16} /> think · talk · thrive <Ribbon size={16} />
-        </motion.p>
-
-        {/* Highlights */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-10"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto mb-8 font-light leading-relaxed"
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
         >
-          {highlights.map((item) => (
-            <span
-              key={item}
-              className="px-4 py-2 rounded-full border border-primary-foreground/30 text-sm text-primary-foreground bg-primary-foreground/10 backdrop-blur-sm"
-            >
-              {item}
-            </span>
-          ))}
+          Building emotionally healthier men, stronger families, and resilient communities across Kenya. We are moulding a generation of men who listen, speak, heal, lead, and help others do the same.
+        </motion.p>
+
+        {/* Psychological Anchor / Mission Badge */}
+        <motion.div
+          className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-accent/10 border border-accent/30 text-accent mb-12 shadow-[0_0_20px_rgba(0,0,0,0.2)] cursor-default"
+          variants={tagVariants}
+          initial="hidden"
+          animate="visible"
+          whileHover={{ scale: 1.02, backgroundColor: "rgba(var(--accent), 0.15)" }}
+        >
+          <Ribbon size={16} />
+          <span className="font-heading text-xs sm:text-sm tracking-[0.3em] uppercase font-bold">
+            think · talk · thrive
+          </span>
+          <Ribbon size={16} />
         </motion.div>
 
-        {/* CTAs */}
+        {/* Streamlined Fitts's Law CTA Action Hierarchy */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <a
+          {/* Primary Action Button (High Prominence) */}
+          <motion.a
             href="#get-involved"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-heading font-bold text-sm tracking-wider gradient-green text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-xl font-heading font-bold text-sm tracking-wider gradient-green text-primary-foreground shadow-xl hover:shadow-2xl transition-all"
           >
             GET INVOLVED
-          </a>
-          <a
+          </motion.a>
+
+          {/* Secondary Action Button (Demoted Ghost/Outline) */}
+          <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-heading font-bold text-sm tracking-wider border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground transition-all duration-300"
+            whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-xl font-heading font-bold text-sm tracking-wider border border-primary-foreground/30 text-primary-foreground/90 hover:text-primary-foreground transition-all"
           >
             CONTACT US
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

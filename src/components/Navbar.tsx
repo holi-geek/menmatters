@@ -1,12 +1,12 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Ribbon } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Framework", href: "#framework" },
   { label: "Programs", href: "#programs" },
+  { label: "Framework", href: "#framework" },
   { label: "Impact", href: "#impact" },
   { label: "Get Involved", href: "#get-involved" },
   { label: "Contact", href: "#contact" },
@@ -14,9 +14,30 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Add scroll listener to toggle transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-card/95 backdrop-blur-md border-b border-border shadow-sm" 
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="container flex items-center justify-between h-16">
         <a href="#home" className="flex items-center gap-2">
           <img src={logo} alt="Men Matter logo" className="h-10 w-10 rounded-full" />

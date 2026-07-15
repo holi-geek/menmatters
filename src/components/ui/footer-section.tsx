@@ -75,7 +75,7 @@ function Footerdemo() {
             <h3 className="mb-4 font-heading text-lg font-semibold text-accent">Contact Us</h3>
             <address className="not-italic space-y-2 text-sm text-primary-foreground/70">
               <p>HomaBay, Kenya</p>
-              <p>Phone: +254 700 000 000</p>
+              <p>Phone: +254 721 302 058</p>
               <p>
                 Email:{" "}
                 <a href="mailto:menmatter@gmail.com" className="hover:text-accent transition-colors">
