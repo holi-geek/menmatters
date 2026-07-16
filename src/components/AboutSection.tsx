@@ -38,7 +38,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: "easeOut" as const }
   },
 };
 
@@ -199,7 +199,7 @@ const AboutSection = () => {
             transition={{
               delay: 0.3,
               duration: 0.8,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
             }}
             className="flex flex-col items-center justify-center max-w-4xl z-50"
           >
