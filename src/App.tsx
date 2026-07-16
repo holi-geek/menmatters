@@ -5,7 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import FloatingContact from "./components/FloatingContact"; // 👈 new import
+import Gallery from "./pages/Gallery";
+import PeopleStories from "./pages/PeopleStories";
+import FloatingContact from "./components/FloatingContact";
 
 const queryClient = new QueryClient();
 
@@ -17,10 +19,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/stories" element={<PeopleStories />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FloatingContact /> {/* 👈 placed here – persistent on all routes */}
+        <FloatingContact />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
