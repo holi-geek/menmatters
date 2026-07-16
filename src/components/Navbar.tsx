@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Ribbon } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Framework", href: "#framework" },
-  { label: "Impact", href: "#impact" },
-  { label: "Get Involved", href: "#get-involved" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home", type: "route" as const },
+  { label: "About", href: "/#about", type: "route" as const },
+  { label: "Programs", href: "/#programs", type: "route" as const },
+  { label: "Framework", href: "/#framework", type: "route" as const },
+  { label: "Impact", href: "/#impact", type: "route" as const },
+  { label: "Gallery", href: "/gallery", type: "route" as const },
+  { label: "Stories", href: "/stories", type: "route" as const },
+  { label: "Get Involved", href: "/#get-involved", type: "route" as const },
+  { label: "Contact", href: "/#contact", type: "route" as const },
 ];
 
 const Navbar = () => {
