@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Ribbon } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Framework", href: "#framework" },
-  { label: "Impact", href: "#impact" },
-  { label: "Get Involved", href: "#get-involved" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home", type: "route" as const },
+  { label: "About", href: "/#about", type: "route" as const },
+  { label: "Programs", href: "/#programs", type: "route" as const },
+  { label: "Framework", href: "/#framework", type: "route" as const },
+  { label: "Impact", href: "/#impact", type: "route" as const },
+  { label: "Gallery", href: "/gallery", type: "route" as const },
+  { label: "Stories", href: "/stories", type: "route" as const },
+  { label: "Get Involved", href: "/#get-involved", type: "route" as const },
+  { label: "Contact", href: "/#contact", type: "route" as const },
 ];
 
 const Navbar = () => {
@@ -49,13 +52,13 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -74,14 +77,14 @@ const Navbar = () => {
         <div className="md:hidden bg-card border-b border-border">
           <div className="container py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setOpen(false)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
