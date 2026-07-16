@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Ribbon } from "lucide-react";
 
