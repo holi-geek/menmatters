@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Ribbon } from "lucide-react";
 
@@ -16,7 +16,7 @@ const tagVariants = {
       y: {
         duration: 5,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   },
@@ -106,7 +106,7 @@ const HeroSection = () => {
           role="presentation"
           width="1920"
           height="1080"
-          fetchpriority="high"
+          fetchPriority="high"
           className="w-full h-full object-cover opacity-90"
         />
       </motion.div>
