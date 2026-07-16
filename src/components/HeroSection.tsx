@@ -106,7 +106,7 @@ const HeroSection = () => {
           role="presentation"
           width="1920"
           height="1080"
-          fetchpriority="high"
+          fetchPriority="high"
           className="w-full h-full object-cover opacity-90"
         />
       </motion.div>
