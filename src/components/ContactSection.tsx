@@ -57,7 +57,7 @@ const LogoTagline = () => (
 
 export default function ContactSectionVariant9WithMap() {
   return (
-    <section className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-white scroll-mt-20">
       <div className="container px-4 mx-auto">
         {/* Animated Line Split Layout */}
         <div className="relative grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

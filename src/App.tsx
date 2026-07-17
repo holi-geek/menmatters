@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Gallery from "./pages/Gallery";
 import PeopleStories from "./pages/PeopleStories";
 import FloatingContact from "./components/FloatingContact";
+import HashScroll from "./components/HashScroll";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <HashScroll />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/gallery" element={<Gallery />} />
