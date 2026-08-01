@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: MessageSquare,
-    number: 0,
+    number: 13,
     label: "Community Listening Sessions",
     detail: "Every session contributes to understanding local challenges affecting men's mental wellbeing."
   },
@@ -59,16 +59,19 @@ const stats = [
 // ----- TESTIMONIALS -----
 const testimonialItems = [
   {
+    image: "/AO.jpg", // Path relative to the public folder
     quote: "Men Matter helped me understand my own mental health and taught me emotional regulation and active listening. Today, I can support others to realize that many emotional struggles are not witchcraft—they are mental health challenges, and help is available",
-    name: "Community Member",
+    name: "Alphonce Onyango",
     title: "Men Matter Peer Champion",
   },
   {
+    image: "/avatar2.jpg", // Path relative to the public folder
     quote: "The dialogue sessions changed how I see mental health. It's okay to not be okay.",
     name: "Youth Participant",
     title: "Community Program",
   },
   {
+    image: "/avatar3.jpg", // Path relative to the public folder
     quote: "Having a safe space to share without judgment completely shifted my outlook on life and brotherhood.",
     name: "Workshop Attendee",
     title: "Nairobi Chapter",
@@ -144,7 +147,18 @@ const InlineInfiniteMovingCards = ({
             <span className="absolute -top-4 -left-2 text-8xl font-serif text-emerald-900/5 select-none">“</span>
             <blockquote className="relative z-10">
               <span className="text-sm leading-relaxed font-normal text-gray-700 italic">"{item.quote}"</span>
-              <div className="relative z-10 mt-6 flex flex-row items-center">
+              <div className="relative z-10 mt-6 flex flex-row items-center gap-4">
+                {/* Circular Image Container */}
+                <div className="shrink-0">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-emerald-200 shadow-md"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://api.dicebear.com/8.x/initials/svg?seed=${item.name}`;
+                    }}
+                  />
+                </div>
                 <span className="flex flex-col gap-0.5">
                   <span className="text-sm font-semibold text-emerald-950">{item.name}</span>
                   <span className="text-xs text-gray-500">{item.title}</span>
@@ -207,18 +221,19 @@ const TimelineItem = ({ stat, index, onClick }: TimelineItemProps) => {
   );
 
   const isEven = index % 2 === 0;
+  const IconComponent = stat.icon;
 
   return (
     <div
       ref={itemRef}
-      className="relative flex items-center w-full group"
+      className="relative flex items-center w-full group py-3"
       style={{ minHeight: '120px' }}
     >
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-emerald-200/30 -z-10" />
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white shadow-lg z-10 transition-all duration-300 group-hover:scale-125 group-hover:bg-emerald-600" />
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-emerald-200/30 -z-10 hidden md:block" />
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white shadow-lg z-10 transition-all duration-300 group-hover:scale-125 group-hover:bg-emerald-600 hidden md:block" />
       <div className={cn(
-        "w-5/12 p-4 md:p-6 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/30 shadow-lg shadow-emerald-900/5 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-900/10 cursor-pointer",
-        isEven ? "mr-auto ml-4 md:ml-8" : "ml-auto mr-4 md:mr-8"
+        "w-11/12 md:w-5/12 mx-auto md:mx-0 p-4 md:p-6 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/30 shadow-lg shadow-emerald-900/5 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-900/10 cursor-pointer",
+        isEven ? "md:mr-auto md:ml-8" : "md:ml-auto md:mr-8"
       )}
       onClick={() => onClick(index)}
       >
@@ -229,7 +244,7 @@ const TimelineItem = ({ stat, index, onClick }: TimelineItemProps) => {
         >
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 rounded-xl bg-emerald-50/80 text-emerald-700 border border-emerald-200/30">
-              <stat.icon size={20} strokeWidth={1.8} />
+              <IconComponent size={20} strokeWidth={1.8} />
             </div>
             <div>
               <div className="flex items-baseline gap-2 flex-wrap">
@@ -283,6 +298,8 @@ const ImpactSection = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex]);
 
+  const SelectedIcon = selectedIndex !== null ? stats[selectedIndex].icon : Users;
+
   return (
     <section
       id="impact"
@@ -319,7 +336,7 @@ const ImpactSection = () => {
 
         {/* Timeline */}
         <div className="relative w-full">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-emerald-200/30 -z-10" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-emerald-200/30 -z-10 hidden md:block" />
           {stats.map((stat, index) => (
             <TimelineItem
               key={stat.label}
@@ -420,7 +437,7 @@ const ImpactSection = () => {
               <div className="flex flex-col items-start gap-4">
                 <div className="flex items-center gap-4">
                   <div className="p-4 rounded-2xl bg-emerald-50/80 text-emerald-700 border border-emerald-200/30">
-                    {React.createElement(stats[selectedIndex].icon, { size: 32, strokeWidth: 1.8 })}
+                    <SelectedIcon size={32} strokeWidth={1.8} />
                   </div>
                   <div>
                     <div className="text-5xl font-serif font-bold bg-gradient-to-r from-emerald-700 to-emerald-400 bg-clip-text text-transparent">

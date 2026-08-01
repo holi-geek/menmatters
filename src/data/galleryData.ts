@@ -9,10 +9,10 @@ export interface GallerySlide {
 export const gallerySlides: GallerySlide[] = [
   {
     id: "1",
-    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
-    alt: "Group of men in community dialogue",
-    title: "Community Dialogue",
-    caption: "Safe spaces for open conversation in HomaBay",
+    src: "/jela.jpg",
+    alt: "Prison Visit",
+    title: "A courtesy call at the Homabay G.K Prison",
+    caption: "Men Matter founder with Chief Inspector in charge of human rights, after their session on mental resilience for young men behind bars, pause to reflect on the next steps.",
   },
   {
     id: "2",
