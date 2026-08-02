@@ -27,21 +27,11 @@ const Index = () => {
         <Navbar />
         <HeroSection />
         <AboutSection />
-        <div className="cv-auto">
-          <ProgramsSection />
-        </div>
-        <div className="cv-auto">
-          <FrameworkSection />
-        </div>
-        <div className="cv-auto">
-          <ImpactSection />
-        </div>
-        <div className="cv-auto">
-          <GetInvolvedSection />
-        </div>
-        <div className="cv-auto">
-          <ContactSection />
-        </div>
+        <ProgramsSection />
+        <FrameworkSection />
+        <ImpactSection />
+        <GetInvolvedSection />
+        <ContactSection />
         <Footer />
       </div>
     </>
