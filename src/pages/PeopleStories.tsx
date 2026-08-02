@@ -7,12 +7,20 @@ import { StoryCard } from "@/components/stories/StoryCard";
 import { ErrorMessage, LoadingSpinner } from "@/components/ui/feedback";
 import { useFilteredStories } from "@/hooks/useFilteredStories";
 import { stories as mockStories, type Story } from "@/data/storiesData";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const PeopleStories = () => {
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<Story | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -77,13 +85,45 @@ const PeopleStories = () => {
               ) : (
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {filtered.map((s) => (
-                    <StoryCard key={s.id} story={s} />
+                    <StoryCard key={s.id} story={s} onReadMore={setSelected} />
                   ))}
                 </div>
               )}
             </section>
           )}
         </main>
+
+        <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
+          <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+            {selected && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="font-heading text-2xl text-primary">
+                    {selected.title}
+                  </DialogTitle>
+                  <DialogDescription>
+                    By {selected.author} ·{" "}
+                    {new Date(selected.date).toLocaleDateString()}
+                  </DialogDescription>
+                </DialogHeader>
+                {selected.image && (
+                  <img
+                    src={selected.image}
+                    alt={selected.title}
+                    className="max-h-72 w-full rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                  {selected.body.split("\n\n").map((p, i) => (
+                    <p key={i}>{p.trim()}</p>
+                  ))}
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+
         <Footer />
       </div>
     </>
