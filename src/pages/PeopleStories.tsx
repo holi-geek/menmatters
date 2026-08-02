@@ -128,6 +128,29 @@ const PeopleStories = () => {
                     <p key={i}>{p.trim()}</p>
                   ))}
                 </div>
+                <div className="mt-2 flex items-center justify-between gap-3 border-t border-border pt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => goTo(-1)}
+                    disabled={currentIndex <= 0}
+                  >
+                    <ChevronLeft className="mr-1 h-4 w-4" />
+                    Previous
+                  </Button>
+                  <span className="text-xs text-muted-foreground">
+                    {currentIndex + 1} of {filtered.length}
+                  </span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => goTo(1)}
+                    disabled={currentIndex >= filtered.length - 1}
+                  >
+                    Next
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
               </>
             )}
           </DialogContent>
