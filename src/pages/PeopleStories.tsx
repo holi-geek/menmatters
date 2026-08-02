@@ -7,6 +7,13 @@ import { StoryCard } from "@/components/stories/StoryCard";
 import { ErrorMessage, LoadingSpinner } from "@/components/ui/feedback";
 import { useFilteredStories } from "@/hooks/useFilteredStories";
 import { stories as mockStories, type Story } from "@/data/storiesData";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const PeopleStories = () => {
   const [stories, setStories] = useState<Story[]>([]);
