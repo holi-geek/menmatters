@@ -1,0 +1,15 @@
+# MEN MATTER
+
+> Kenyan community-based mental health initiative helping men think, talk, and thrive through dialogue, safe spaces, and advocacy.
+
+MEN MATTER is a Kenyan mental health initiative founded by psychiatric nurse Georgina Achieng Otieno. The organization creates safe spaces for men to discuss mental health, emotional wellbeing, and life challenges. Its programs focus on community dialogue, youth mental health, prison outreach, media advocacy, gender-based violence prevention, family conversations, mental health screening, and leadership development.
+
+## Pages
+
+- [Home](/): Learn about MEN MATTER, its mission, framework, programs, impact, and how to get involved.
+- [Gallery](/gallery): A slideshow of photos from community events, outreach programs, and mental health activities.
+- [Stories](/stories): Real stories and lived experiences shared by community members, with search and filtering by author or title.
+
+## Optional
+
+- [Contact](/#contact): Reach out to MEN MATTER via the contact form or find the Homa Bay, Kenya location.
