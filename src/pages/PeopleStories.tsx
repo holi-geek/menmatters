@@ -14,6 +14,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const PeopleStories = () => {
   const [stories, setStories] = useState<Story[]>([]);
@@ -43,6 +45,15 @@ const PeopleStories = () => {
   }, []);
 
   const filtered = useFilteredStories(stories, query);
+
+  const currentIndex = selected
+    ? filtered.findIndex((s) => s.id === selected.id)
+    : -1;
+  const goTo = (offset: number) => {
+    if (currentIndex < 0) return;
+    const next = filtered[currentIndex + offset];
+    if (next) setSelected(next);
+  };
 
   return (
     <>
@@ -118,6 +129,29 @@ const PeopleStories = () => {
                   {selected.body.split("\n\n").map((p, i) => (
                     <p key={i}>{p.trim()}</p>
                   ))}
+                </div>
+                <div className="mt-2 flex items-center justify-between gap-3 border-t border-border pt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => goTo(-1)}
+                    disabled={currentIndex <= 0}
+                  >
+                    <ChevronLeft className="mr-1 h-4 w-4" />
+                    Previous
+                  </Button>
+                  <span className="text-xs text-muted-foreground">
+                    {currentIndex + 1} of {filtered.length}
+                  </span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => goTo(1)}
+                    disabled={currentIndex >= filtered.length - 1}
+                  >
+                    Next
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
               </>
             )}
