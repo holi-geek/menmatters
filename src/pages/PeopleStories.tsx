@@ -85,13 +85,45 @@ const PeopleStories = () => {
               ) : (
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {filtered.map((s) => (
-                    <StoryCard key={s.id} story={s} />
+                    <StoryCard key={s.id} story={s} onReadMore={setSelected} />
                   ))}
                 </div>
               )}
             </section>
           )}
         </main>
+
+        <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
+          <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+            {selected && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="font-heading text-2xl text-primary">
+                    {selected.title}
+                  </DialogTitle>
+                  <DialogDescription>
+                    By {selected.author} ·{" "}
+                    {new Date(selected.date).toLocaleDateString()}
+                  </DialogDescription>
+                </DialogHeader>
+                {selected.image && (
+                  <img
+                    src={selected.image}
+                    alt={selected.title}
+                    className="max-h-72 w-full rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                  {selected.body.split("\n\n").map((p, i) => (
+                    <p key={i}>{p.trim()}</p>
+                  ))}
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+
         <Footer />
       </div>
     </>
