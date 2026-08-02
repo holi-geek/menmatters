@@ -44,6 +44,15 @@ const PeopleStories = () => {
 
   const filtered = useFilteredStories(stories, query);
 
+  const currentIndex = selected
+    ? filtered.findIndex((s) => s.id === selected.id)
+    : -1;
+  const goTo = (offset: number) => {
+    if (currentIndex < 0) return;
+    const next = filtered[currentIndex + offset];
+    if (next) setSelected(next);
+  };
+
   return (
     <>
       <Helmet>
