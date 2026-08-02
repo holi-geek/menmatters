@@ -20,6 +20,7 @@ const PeopleStories = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<Story | null>(null);
 
   useEffect(() => {
     let cancelled = false;
