@@ -11,6 +11,8 @@ const Grid = ({ members }: { members: TeamMember[] }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.4, delay: Math.min(i, 3) * 0.06 }}
+        className="h-full"
+
       >
         <TeamCard member={member} />
       </motion.div>

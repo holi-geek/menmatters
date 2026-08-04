@@ -2,7 +2,7 @@ import { Linkedin, Mail } from "lucide-react";
 import type { TeamMember } from "@/data/teamData";
 
 const TeamCard = ({ member }: { member: TeamMember }) => (
-  <article className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-md">
+  <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-md">
     <div className="aspect-[4/5] w-full overflow-hidden bg-muted">
       <img
         src={member.image}
