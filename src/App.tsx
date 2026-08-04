@@ -12,6 +12,7 @@ import HashScroll from "./components/HashScroll";
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const PeopleStories = lazy(() => import("./pages/PeopleStories"));
+const Team = lazy(() => import("./pages/Team"));
 const FloatingContact = lazy(() => import("./components/FloatingContact"));
 
 const queryClient = new QueryClient({
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/stories" element={<PeopleStories />} />
+            <Route path="/team" element={<Team />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -18,6 +18,7 @@ const navLinks: NavItem[] = [
       { label: "Get Involved", href: "/#get-involved" },
     ],
   },
+  { label: "Our Team", href: "/team" },
   { label: "Gallery", href: "/gallery" },
   { label: "Stories", href: "/stories" },
   { label: "Contact Us", href: "/#contact" },
