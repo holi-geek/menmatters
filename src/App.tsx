@@ -12,6 +12,7 @@ import HashScroll from "./components/HashScroll";
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const PeopleStories = lazy(() => import("./pages/PeopleStories"));
+const Team = lazy(() => import("./pages/Team"));
 const FloatingContact = lazy(() => import("./components/FloatingContact"));
 
 const queryClient = new QueryClient({
