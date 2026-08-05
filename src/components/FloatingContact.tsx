@@ -78,13 +78,20 @@ export default function FloatingContact() {
           </span>
         </button>
 
-        {/* Main toggle button */}
+        {/* Main toggle button — avatar */}
         <button
           onClick={toggle}
-          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform active:scale-95 flex items-center justify-center text-white text-2xl sm:text-3xl"
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-transform active:scale-95 overflow-hidden border-2 border-white"
           aria-label="Toggle contact options"
         >
-          <FaCommentDots className={`transition-transform duration-300 ${isOpen ? 'rotate-135' : ''}`} />
+          <img
+            src={chatAvatar}
+            alt="Friendly peer supporter avatar"
+            width={64}
+            height={64}
+            loading="lazy"
+            className={`w-full h-full object-cover transition-transform duration-300 ${isOpen ? 'rotate-12 scale-110' : 'scale-100'}`}
+          />
         </button>
       </div>
     </div>
