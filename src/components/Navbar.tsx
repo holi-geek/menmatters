@@ -9,7 +9,7 @@ type NavItem = { label: string; href: string; children?: NavChild[] };
 const navLinks: NavItem[] = [
   { label: "Home", href: "/#home" },
   {
-    label: "About Us",
+    label: "Our Work",
     href: "/#about",
     children: [
       { label: "Programs", href: "/#programs" },
