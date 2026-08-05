@@ -9,14 +9,14 @@ const TeamCard = ({ member }: { member: TeamMember }) => (
         alt={member.alt ?? `${member.name}, ${member.role} at Men Matter`}
         loading="lazy"
         decoding="async"
-        sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw"
+        sizes="(min-width: 1280px) 280px, (min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw"
         className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
       />
     </div>
-    <div className="p-5">
+    <div className="flex flex-1 flex-col p-5">
       <h3 className="font-heading text-lg font-semibold text-foreground">{member.name}</h3>
       <p className="mt-0.5 text-sm font-medium text-primary">{member.role}</p>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
       {(member.linkedin || member.email) && (
         <div className="mt-4 flex items-center gap-3">
           {member.linkedin && (

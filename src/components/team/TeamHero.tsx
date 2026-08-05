@@ -14,10 +14,10 @@ const TeamHero = () => (
         transition={{ duration: 0.5 }}
         className="mx-auto max-w-3xl"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+        {/*<span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
           <Ribbon size={14} aria-hidden="true" />
           Our People
-        </span>
+        </span>*/}
         <h1 className="mt-5 font-heading text-3xl font-bold text-foreground sm:text-5xl">
           Meet Our Team
         </h1>

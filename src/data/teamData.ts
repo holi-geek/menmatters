@@ -27,10 +27,10 @@ export const teamCategories: TeamCategory[] = [
 /** Founder video — replace with a real YouTube/Vimeo embed URL or a local file. */
 export const founderVideo = {
   /** Embed URL (YouTube/Vimeo) or a path to a local mp4 under /public. */
-  url: "https://www.youtube.com/embed/ysz5S6PUM-U",
+  url: "/founder.mp4",
   /** Poster / thumbnail image shown before playback. */
   poster:
-    "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80",
+    "/logo.png",
   title: "A Message From Our Founder",
   /** Optional WebVTT captions file for local video sources. */
   captionsSrc: "",
