@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaWhatsapp, FaPhoneAlt, FaCommentDots } from 'react-icons/fa';
+import chatAvatar from '@/assets/chat-avatar.png';
 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,18 +51,42 @@ export default function FloatingContact() {
         <span className="font-medium text-gray-800">Call us</span>
       </a>
 
-      {/* Main toggle button */}
-      <button
-        onClick={toggle}
-        className="relative w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform active:scale-95 flex items-center justify-center text-white text-3xl"
-        aria-label="Toggle contact options"
-      >
-        <FaCommentDots className={`transition-transform duration-300 ${isOpen ? 'rotate-135' : ''}`} />
-        {/* Optional tooltip – hidden on mobile */}
-        <span className="absolute right-20 hidden sm:block bg-black/70 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-          Contact
-        </span>
-      </button>
+      {/* Bottom row: avatar, prompt, and main toggle */}
+      <div className="flex items-center gap-3">
+        {/* Friendly peer-supporter avatar */}
+        <img
+          src={chatAvatar}
+          alt="Friendly peer supporter avatar"
+          width={48}
+          height={48}
+          loading="lazy"
+          className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg hidden sm:block"
+        />
+
+        {/* Talk-to-someone prompt bubble */}
+        <button
+          onClick={toggle}
+          className="group flex items-center gap-2 bg-white pl-4 pr-5 py-3 rounded-full shadow-lg border border-gray-100/50 backdrop-blur-sm transition-all duration-200 ease-out hover:shadow-xl hover:scale-105"
+          aria-label="Talk to someone"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span className="font-semibold text-gray-800 text-sm whitespace-nowrap">
+            Talk to someone?
+          </span>
+        </button>
+
+        {/* Main toggle button */}
+        <button
+          onClick={toggle}
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform active:scale-95 flex items-center justify-center text-white text-2xl sm:text-3xl"
+          aria-label="Toggle contact options"
+        >
+          <FaCommentDots className={`transition-transform duration-300 ${isOpen ? 'rotate-135' : ''}`} />
+        </button>
+      </div>
     </div>
   );
 }
