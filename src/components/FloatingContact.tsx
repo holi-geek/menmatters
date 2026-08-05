@@ -51,18 +51,8 @@ export default function FloatingContact() {
         <span className="font-medium text-gray-800">Call us</span>
       </a>
 
-      {/* Bottom row: avatar, prompt, and main toggle */}
+      {/* Bottom row: prompt and main toggle */}
       <div className="flex items-center gap-3">
-        {/* Friendly peer-supporter avatar */}
-        <img
-          src={chatAvatar}
-          alt="Friendly peer supporter avatar"
-          width={48}
-          height={48}
-          loading="lazy"
-          className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg hidden sm:block"
-        />
-
         {/* Talk-to-someone prompt bubble */}
         <button
           onClick={toggle}
