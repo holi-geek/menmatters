@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaWhatsapp, FaPhoneAlt, FaCommentDots } from 'react-icons/fa';
+import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import chatAvatar from '@/assets/chat-avatar.png';
 
 export default function FloatingContact() {
