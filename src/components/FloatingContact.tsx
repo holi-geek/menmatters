@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import chatAvatar from '@/assets/chat-avatar.png';
 
 export default function FloatingContact(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
