@@ -123,10 +123,10 @@ const HeroSection = () => {
         {/* Stable Cognitive-Safe Primary Headline */}
         <motion.h1
           className="font-heading text-4xl sm:text-6xl md:text-7xl font-black text-primary-foreground mb-6 leading-[1.1] flex flex-col items-center"
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
         >
+
           <span className="block">Mental Health Matters.</span>
           <span className="block mt-2 text-accent drop-shadow-[0_0_25px_rgba(0,0,0,0.6)] min-h-[1.1em]">
             {subheadText}
