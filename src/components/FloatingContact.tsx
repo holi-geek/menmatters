@@ -33,7 +33,7 @@ export default function FloatingContact(): JSX.Element {
   const currentMessage = messages[messageIndex];
   const isAlternative = messageIndex === 1;
 
-  const avatarSrc = `${import.meta.env.BASE_URL}chat-avatar.png`;
+  const avatarSrc = chatAvatar;
 
   return (
     <>
