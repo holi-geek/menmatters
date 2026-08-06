@@ -101,14 +101,18 @@ const HeroSection = () => {
         style={{ x: bgX, y: bgY }}
       >
         <img
-          src={heroBg}
+          src="/hero-bg-1440.webp"
+          srcSet="/hero-bg-960.webp 960w, /hero-bg-1440.webp 1440w, /hero-bg-1920.webp 1920w"
+          sizes="100vw"
           alt=""
           role="presentation"
           width="1920"
-          height="1080"
+          height="1088"
           fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover opacity-90"
         />
+
       </motion.div>
 
       {/* Optimized focal radial gradient mask for AAA text contrast legibility */}
