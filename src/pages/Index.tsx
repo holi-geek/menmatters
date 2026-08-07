@@ -6,7 +6,6 @@ import ProgramsSection from "@/components/ProgramsSection";
 import FrameworkSection from "@/components/FrameworkSection";
 import ImpactSection from "@/components/ImpactSection";
 import GetInvolvedSection from "@/components/GetInvolvedSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -31,7 +30,6 @@ const Index = () => {
         <FrameworkSection />
         <ImpactSection />
         <GetInvolvedSection />
-        <ContactSection />
         <Footer />
       </div>
     </>

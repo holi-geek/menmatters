@@ -12,4 +12,4 @@ MEN MATTER is a Kenyan mental health initiative founded by psychiatric nurse Geo
 
 ## Optional
 
-- [Contact](/#contact): Reach out to MEN MATTER via the contact form or find the Homa Bay, Kenya location.
+- [Contact](/contact): Reach out to MEN MATTER via the contact form or find the Homa Bay, Kenya location.

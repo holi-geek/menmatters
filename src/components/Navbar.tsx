@@ -21,7 +21,7 @@ const navLinks: NavItem[] = [
   { label: "Our Team", href: "/team" },
   { label: "Gallery", href: "/gallery" },
   { label: "Stories", href: "/stories" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {
