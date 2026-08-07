@@ -25,8 +25,6 @@ const Index = () => {
         <Navbar />
         <HeroSection />
         <AboutSection />
-        <ProgramsSection />
-        <FrameworkSection />
         <ImpactSection />
         <GetInvolvedSection />
         <Footer />
