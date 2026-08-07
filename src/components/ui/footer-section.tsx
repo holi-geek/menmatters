@@ -63,11 +63,12 @@ function Footerdemo() {
           <div>
             <h3 className="mb-4 font-heading text-lg font-semibold text-accent">Quick Links</h3>
             <nav className="space-y-2 text-sm text-primary-foreground/70">
-              <a href="#home" className="block hover:text-accent transition-colors">Home</a>
-              <a href="#about" className="block hover:text-accent transition-colors">About</a>
-              <a href="#framework" className="block hover:text-accent transition-colors">Framework</a>
-              <a href="#programs" className="block hover:text-accent transition-colors">Programs</a>
-              <a href="#get-involved" className="block hover:text-accent transition-colors">Get Involved</a>
+              <Link to="/#home" className="block hover:text-accent transition-colors">Home</Link>
+              <Link to="/services" className="block hover:text-accent transition-colors">Services</Link>
+              <Link to="/team" className="block hover:text-accent transition-colors">Our Team</Link>
+              <Link to="/gallery" className="block hover:text-accent transition-colors">Gallery</Link>
+              <Link to="/stories" className="block hover:text-accent transition-colors">Stories</Link>
+              <Link to="/contact" className="block hover:text-accent transition-colors">Contact Us</Link>
             </nav>
           </div>
 
