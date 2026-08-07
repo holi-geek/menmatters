@@ -344,7 +344,7 @@ const ProgramsSection = () => {
 
                 <a
 
-                  href="#contact"
+                  href="/contact"
 
                   onClick={() => setSelectedProgram(null)}
 

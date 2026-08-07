@@ -177,7 +177,7 @@ const HeroSection = () => {
 
           {/* Secondary Action Button (Demoted Ghost/Outline) */}
           <motion.a
-            href="#contact"
+            href="/contact"
             whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-xl font-heading font-bold text-sm tracking-wider border border-primary-foreground/30 text-primary-foreground/90 hover:text-primary-foreground transition-all"
