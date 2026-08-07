@@ -14,6 +14,8 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const PeopleStories = lazy(() => import("./pages/PeopleStories"));
 const Team = lazy(() => import("./pages/Team"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Services = lazy(() => import("./pages/Services"));
+
 const FloatingContact = lazy(() => import("./components/FloatingContact"));
 
 const queryClient = new QueryClient({
@@ -41,6 +43,8 @@ const App = () => (
             <Route path="/stories" element={<PeopleStories />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<Services />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

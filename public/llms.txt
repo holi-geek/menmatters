@@ -7,6 +7,7 @@ MEN MATTER is a Kenyan mental health initiative founded by psychiatric nurse Geo
 ## Pages
 
 - [Home](/): Learn about MEN MATTER, its mission, framework, programs, impact, and how to get involved.
+- [Services](/services): Our programs and framework for mental health support.
 - [Gallery](/gallery): A slideshow of photos from community events, outreach programs, and mental health activities.
 - [Stories](/stories): Real stories and lived experiences shared by community members, with search and filtering by author or title.
 
