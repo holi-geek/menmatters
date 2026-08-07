@@ -8,21 +8,13 @@ type NavItem = { label: string; href: string; children?: NavChild[] };
 
 const navLinks: NavItem[] = [
   { label: "Home", href: "/#home" },
-  {
-    label: "Our Work",
-    href: "/#about",
-    children: [
-      { label: "Programs", href: "/#programs" },
-      { label: "Framework", href: "/#framework" },
-      { label: "Impact", href: "/#impact" },
-      { label: "Get Involved", href: "/#get-involved" },
-    ],
-  },
+  { label: "Services", href: "/services" },
   { label: "Our Team", href: "/team" },
   { label: "Gallery", href: "/gallery" },
   { label: "Stories", href: "/stories" },
   { label: "Contact Us", href: "/contact" },
 ];
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
