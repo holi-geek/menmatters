@@ -190,15 +190,15 @@ const GetInvolvedSection = () => {
                         <p className="text-stone-600 text-sm md:text-base leading-relaxed">
                           {card.fullDesc}
                         </p>
-                        <motion.a
-                          href={`/contact?topic=${encodeURIComponent(card.topic)}#contact-form`}
+                        <MotionLink
+                          to={`/contact?topic=${encodeURIComponent(card.topic)}#contact-form`}
                           className="mt-5 inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-100/50 hover:shadow-emerald-200/50"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           <span>Get started</span>
                           <ArrowRight size={16} />
-                        </motion.a>
+                        </MotionLink>
                       </div>
                     </motion.div>
                   )}
