@@ -1,6 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { HandHeart, Handshake, Gift, ArrowRight, Crown, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion(Link);
 
 const cards = [
   {
