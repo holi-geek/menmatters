@@ -1,15 +1,25 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
-import { User, Mail, MessageSquare, Send } from "lucide-react";
+import { User, Mail, MessageSquare, Send, ChevronDown, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 
+const TOPICS = [
+  "General inquiry",
+  "Volunteer",
+  "Partner",
+  "Donate / Support",
+  "Become a Champion",
+] as const;
+
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
+  topic: z.enum(TOPICS, { message: "Please select a topic" }),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
 
