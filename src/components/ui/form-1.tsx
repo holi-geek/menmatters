@@ -121,6 +121,27 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-2">
+          <Label htmlFor="topic">How can we help?</Label>
+          <div className="relative">
+            <Tag size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+            <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+            <select
+              id="topic"
+              value={form.topic}
+              onChange={(e) => setForm({ ...form, topic: e.target.value })}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-9 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
+            >
+              {TOPICS.map((topic) => (
+                <option key={topic} value={topic}>
+                  {topic}
+                </option>
+              ))}
+            </select>
+          </div>
+          {errors.topic && <p className="text-xs text-destructive">{errors.topic}</p>}
+        </div>
+
+        <div className="space-y-2">
           <Label htmlFor="message">Message</Label>
           <div className="relative">
             <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
