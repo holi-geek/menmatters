@@ -69,7 +69,10 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto bg-card rounded-2xl p-8 md:p-10 border border-primary/30 shadow-md">
+    <div
+      id="contact-form"
+      className="w-full max-w-xl mx-auto bg-card rounded-2xl p-8 md:p-10 border border-primary/30 shadow-md scroll-mt-24"
+    >
       <p className="text-xs font-heading font-bold tracking-widest text-primary mb-2 uppercase">
         Contact Us
       </p>
