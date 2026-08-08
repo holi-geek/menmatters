@@ -128,7 +128,9 @@ export default function ContactForm() {
             <select
               id="topic"
               value={form.topic}
-              onChange={(e) => setForm({ ...form, topic: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, topic: e.target.value as (typeof TOPICS)[number] })
+              }
               className="flex h-10 w-full rounded-md border border-input bg-background px-9 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
             >
               {TOPICS.map((topic) => (
