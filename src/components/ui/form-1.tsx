@@ -24,7 +24,18 @@ const contactSchema = z.object({
 });
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [searchParams] = useSearchParams();
+  const initialTopic = searchParams.get("topic") ?? "";
+  const validTopic = TOPICS.includes(initialTopic as (typeof TOPICS)[number])
+    ? (initialTopic as (typeof TOPICS)[number])
+    : "General inquiry";
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    topic: validTopic,
+    message: "",
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
@@ -42,16 +53,18 @@ export default function ContactForm() {
     setErrors({});
     setSubmitting(true);
 
-    const { name, email, message } = result.data;
-    const subject = encodeURIComponent(`Contact from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    const { name, email, topic, message } = result.data;
+    const subject = encodeURIComponent(`Contact from ${name} — ${topic}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`
+    );
     window.location.href = `mailto:menmatter@gmail.com?subject=${subject}&body=${body}`;
 
     toast({
       title: "Opening your email app",
       description: "Please send the pre-filled message to complete your inquiry.",
     });
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", topic: "General inquiry", message: "" });
     setSubmitting(false);
   };
 
