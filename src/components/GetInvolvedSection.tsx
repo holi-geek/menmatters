@@ -1,29 +1,36 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { HandHeart, Handshake, Gift, ArrowRight, Crown, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion(Link);
 
 const cards = [
   {
     icon: HandHeart,
     title: "Volunteer",
+    topic: "Volunteer",
     desc: "Help facilitate community dialogues, youth sessions, and awareness programs across Kenya.",
     fullDesc: "As a volunteer, you'll receive training in mental health first aid, facilitation skills, and community engagement. You'll help run safe spaces, lead conversations, and support men in your community. No prior experience needed – just a heart for service.",
   },
   {
     icon: Handshake,
     title: "Partner",
+    topic: "Partner",
     desc: "Collaborate with us to expand mental health outreach and strengthen community programs.",
     fullDesc: "Partnership opportunities include joint programming, resource sharing, co-hosting events, and cross-referral networks. We work with hospitals, schools, faith organizations, county departments, and community groups to maximize impact.",
   },
   {
     icon: Gift,
     title: "Donate / Support",
+    topic: "Donate / Support",
     desc: "Your contributions help us reach more men and youth with life-changing mental health resources.",
     fullDesc: "Your donations fund community dialogues, school visits, training programs, and mental health referrals. Every contribution – big or small – helps us reach more men across Kenya with life-changing support and resources.",
   },
   {
     icon: Crown,
     title: "Become a Champion",
+    topic: "Become a Champion",
     desc: "Join the Leadership Academy to train as a peer champion. Empower your community by supporting men's mental health and well‑being.",
     fullDesc: "The Men Matter Leadership Academy is a comprehensive 6-month program that trains you in mental health awareness, counseling skills, community facilitation, and advocacy. You'll graduate as a certified Men Matter Champion and lead change in your community.",
   },
@@ -183,15 +190,15 @@ const GetInvolvedSection = () => {
                         <p className="text-stone-600 text-sm md:text-base leading-relaxed">
                           {card.fullDesc}
                         </p>
-                        <motion.a
-                          href="/contact"
+                        <MotionLink
+                          to={`/contact?topic=${encodeURIComponent(card.topic)}#contact-form`}
                           className="mt-5 inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-100/50 hover:shadow-emerald-200/50"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           <span>Get started</span>
                           <ArrowRight size={16} />
-                        </motion.a>
+                        </MotionLink>
                       </div>
                     </motion.div>
                   )}
